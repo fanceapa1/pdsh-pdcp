@@ -1,0 +1,41 @@
+services:
+  # The "Manager" node (you can run pdsh from here)
+  foo1:
+    build: .
+    hostname: foo1
+    container_name: foo1
+    volumes:
+      # Mount the public key as authorized_keys
+      - ./keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+      # Mount the private key so this node can ssh to others
+      - ./keys/id_rsa:/root/.ssh/id_rsa
+    networks:
+      - cluster-net
+
+  # Worker Node 1
+  foo2:
+    build: .
+    hostname: foo2
+    container_name: foo2
+    volumes:
+      - ./keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+      - ./keys/id_rsa:/root/.ssh/id_rsa
+    networks:
+      - cluster-net
+
+  # Worker Node 2
+  foo3:
+    build: .
+    hostname: foo3
+    container_name: foo3
+    volumes:
+      - ./keys/id_rsa.pub:/root/.ssh/authorized_keys:ro
+      - ./keys/id_rsa:/root/.ssh/id_rsa
+    networks:
+      - cluster-net
+
+# Create a custom bridge network so they can resolve hostnames
+networks:
+  cluster-net:
+    driver: bridge
+    
