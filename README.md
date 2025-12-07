@@ -7,7 +7,6 @@ Clonați local acest repository și urmăriți următorii pași pentru a configu
 
 Navigați în cadrul folder-ului `config` și creați un nou folder `keys`, în care veți genera o cheie ssh, pe care o vom folosi ca instanțele de virtualizare să poată interacționa între ele:<br>
 `mkdir keys`<br>
-`cd keys`<br>
 `ssh-keygen -t rsa -b 4096 -f ./keys/id_rsa -N ""`
 <br><br>
 
