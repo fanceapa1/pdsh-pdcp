@@ -10,8 +10,7 @@ Navigați în cadrul folder-ului `config` și creați un nou folder `keys`, în 
 `ssh-keygen -t rsa -b 4096 -f ./keys/id_rsa -N ""`
 <br><br>
 
-Navigați înapoi în folderul `config` și activați containerele:<br>
-`cd ..`<br>
+Navigați înapoi în folderul `config` (daca este cazul) și activați containerele:<br>
 `docker compose up -d --build`
 
 Rulați următoarea comandă pentru a verifica dacă inițializarea a avut succes:<br>
